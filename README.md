@@ -165,7 +165,7 @@ npm run dev
 
 ---
 
-## 📖 Study Workflow
+## Study Workflow
 
 The AI Study Assistant helps students by generating:
 
