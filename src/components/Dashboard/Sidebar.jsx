@@ -20,7 +20,7 @@ const tabs = [
   { id: 'fillblanks', label: 'Fill Blanks', icon: PenLine },
   { id: 'short', label: 'Short Answer', icon: MessageSquare },
   { id: 'concepts', label: 'Key Concepts', icon: BookOpen },
-  { id: 'revision', label: 'Revision Notes', icon: FileText },
+  { id: 'revision', label: 'Short Notes', icon: FileText },
   { id: 'progress', label: 'Progress', icon: TrendingUp },
 ]
 

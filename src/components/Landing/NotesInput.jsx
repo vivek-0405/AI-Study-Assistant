@@ -72,7 +72,12 @@ export default function NotesInput() {
     onDrop: (files) => {
       if (files[0]) handleFileRead(files[0])
     },
-    accept: { 'text/plain': ['.txt'] },
+    accept: {
+      'text/plain': ['.txt', '.md', '.rtf', '.csv'],
+      'application/pdf': ['.pdf'],
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document': ['.docx'],
+      'application/msword': ['.doc'],
+    },
     multiple: false,
     noClick: true,
   })
@@ -160,7 +165,7 @@ export default function NotesInput() {
               >
                 <Upload className="w-10 h-10 text-brand-500 animate-bounce" />
                 <p className="font-semibold text-brand-600 dark:text-brand-400">
-                  Drop your .txt file here
+                  Drop your PDF, Word, or Text file here
                 </p>
               </motion.div>
             )}
@@ -241,7 +246,7 @@ export default function NotesInput() {
         <button
           onClick={open}
           className="flex items-center gap-2 text-xs text-surface-400 dark:text-surface-500 mb-6 hover:text-brand-500 transition-colors cursor-pointer group text-left"
-          title="Upload .txt file"
+          title="Upload PDF, Word, or Text file"
         >
           <Upload className="w-3.5 h-3.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
           <span className="text-brand-500 underline font-medium">Upload file</span>

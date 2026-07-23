@@ -35,7 +35,7 @@ export default function HeroSection() {
           className="text-5xl sm:text-6xl lg:text-7xl font-black text-surface-900 dark:text-surface-50 leading-tight tracking-tight mb-6"
         >
           Learn Smarter,{' '}
-          <span className="gradient-text">Not Harder</span>
+          <span className="text-blue-600 dark:text-blue-400">Not Harder</span>
         </motion.h1>
 
         {/* Subtitle */}

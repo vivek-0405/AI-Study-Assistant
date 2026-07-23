@@ -121,7 +121,7 @@ ${
       animate="visible"
       className="flex flex-col gap-4"
     >
-      {/* Title + actions */}
+      {/* Title */}
       <motion.div
         variants={staggerItem}
         className="flex items-start justify-between gap-4 flex-wrap"
@@ -133,16 +133,6 @@ ${
           <p className="text-sm text-surface-500 dark:text-surface-400 mt-1">
             AI-generated study material
           </p>
-        </div>
-        <div className="flex items-center gap-2">
-          <CopyButton text={`${data.title}\n\n${data.summary}`} />
-          <button
-            onClick={handleDownload}
-            className="btn-ghost p-2 rounded-lg"
-            title="Download summary"
-          >
-            <Download className="w-4 h-4" />
-          </button>
         </div>
       </motion.div>
 

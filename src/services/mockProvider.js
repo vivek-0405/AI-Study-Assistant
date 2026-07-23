@@ -3,8 +3,97 @@ const getRawMockStudyData = (notesText) => {
   const text = (notesText || '').trim();
   const lowerText = text.toLowerCase();
 
-  // 1. Photosynthesis Preset
-  if (lowerText.includes('photo') || lowerText.includes('synthesis') || lowerText.includes('plant')) {
+  // 1. Artificial Intelligence (AI) Preset
+  if (
+    lowerText.includes('artificial intelligence') ||
+    (lowerText.includes('ai') && lowerText.includes('computer science') && lowerText.includes('human intelligence'))
+  ) {
+    return {
+      title: "Artificial Intelligence (AI)",
+      summary: "Artificial Intelligence (AI) is a branch of computer science that enables machines to perform tasks that normally require human intelligence.",
+      detailedSummary: "Key concepts include machine learning, knowledge representation, reasoning, problem-solving, natural language processing, computer vision, and robotics. AI techniques include supervised learning, unsupervised learning, reinforcement learning, and deep learning. Intelligent agents perceive their environment, make decisions, and improve their performance through learning and experience.",
+      keyPoints: [
+        "Enables machines to perform cognitive tasks normally requiring human intelligence.",
+        "Core domains include Machine Learning, NLP, Computer Vision, Robotics, and Automated Reasoning.",
+        "Techniques include Supervised, Unsupervised, Reinforcement, and Deep Learning.",
+        "Intelligent agents operate by perceiving environments, making decisions, and taking actions.",
+        "Powers real-world innovations from autonomous vehicles to generative AI models."
+      ],
+      importantDefinitions: [
+        { term: "Artificial Intelligence (AI)", definition: "The simulation of human intelligence processes by computer systems, including learning, reasoning, and self-correction." },
+        { term: "Intelligent Agent", definition: "An autonomous entity that perceives its environment through sensors, acts upon it using actuators, and directs activity toward achieving goals." },
+        { term: "Deep Learning", definition: "A subfield of machine learning based on multi-layered artificial neural networks inspired by the human brain structure." },
+        { term: "Computer Vision", definition: "A field of AI enabling computers to derive meaningful information from visual inputs such as images and videos." }
+      ],
+      flashcards: [
+        { question: "What is Artificial Intelligence (AI)?", answer: "A branch of computer science that enables machines to simulate human intelligence and perform complex tasks.", difficulty: "easy", hint: "Simulating human intelligence." },
+        { question: "What is an intelligent agent in AI?", answer: "An autonomous entity that perceives its environment, makes decisions, and takes actions to achieve goals.", difficulty: "easy" },
+        { question: "What are the four main learning techniques in AI?", answer: "Supervised Learning, Unsupervised Learning, Reinforcement Learning, and Deep Learning.", difficulty: "medium" },
+        { question: "What is the difference between AI, Machine Learning, and Deep Learning?", answer: "AI is the broad field, Machine Learning is a subset focusing on learning from data, and Deep Learning is a subset using multi-layer neural networks.", difficulty: "medium" },
+        { question: "Which AI domain enables computers to process and generate human languages?", answer: "Natural Language Processing (NLP).", difficulty: "easy" },
+        { question: "Which AI domain enables machines to interpret and analyze visual images?", answer: "Computer Vision.", difficulty: "easy" },
+        { question: "What is reinforcement learning?", answer: "An AI training method where an agent learns to achieve a goal by interacting with an environment through trial, error, and reward signals.", difficulty: "medium" },
+        { question: "What is the Turing Test?", answer: "A test proposed by Alan Turing to determine whether a computer can exhibit human-like intelligence in natural conversation.", difficulty: "medium" }
+      ],
+      quiz: [
+        {
+          question: "Which field of AI deals with allowing machines to understand, interpret, and generate human language?",
+          options: ["Computer Vision", "Natural Language Processing (NLP)", "Robotics", "Knowledge Representation"],
+          answer: "Natural Language Processing (NLP)",
+          explanation: "NLP is the specific subfield of AI dedicated to computer-human language interactions.",
+          difficulty: "easy"
+        },
+        {
+          question: "What defines an intelligent agent in AI systems?",
+          options: [
+            "Perceiving its environment, making decisions, and taking actions to achieve goals",
+            "Only executing pre-programmed static instructions without feedback",
+            "Storing large files on hard drives",
+            "Rendering 3D graphics on a display"
+          ],
+          answer: "Perceiving its environment, making decisions, and taking actions to achieve goals",
+          explanation: "Intelligent agents continuously perceive, decide, and act upon environmental feedback.",
+          difficulty: "easy"
+        },
+        {
+          question: "Which learning technique trains agents using reward and penalty signals?",
+          options: ["Supervised Learning", "Unsupervised Learning", "Reinforcement Learning", "Rule-based Logic"],
+          answer: "Reinforcement Learning",
+          explanation: "Reinforcement learning optimizes actions based on feedback rewards and penalties from an environment.",
+          difficulty: "medium"
+        }
+      ],
+      trueFalse: [
+        { statement: "Machine Learning is a subfield of Artificial Intelligence.", answer: true, explanation: "ML is a subset of AI focused on learning representations from data without explicit programming." },
+        { statement: "An intelligent agent cannot adapt to changing environmental inputs.", answer: false, explanation: "Intelligent agents continuously perceive environmental feedback and adapt their decisions." }
+      ],
+      fillBlanks: [
+        { question: "The branch of computer science enabling machines to perform human-like cognitive tasks is ____.", answer: "Artificial Intelligence", hint: "AI" },
+        { question: "AI systems that learn using multi-layered artificial neural networks use ____ learning.", answer: "deep", hint: "Deep neural networks." }
+      ],
+      shortQuestions: [
+        { question: "Explain the relationship between Artificial Intelligence, Machine Learning, and Deep Learning.", sampleAnswer: "Artificial Intelligence is the overarching discipline of creating intelligent machines. Machine Learning is a subset of AI that enables systems to learn from data. Deep Learning is a specialized subset of ML that uses deep multi-layer artificial neural networks.", points: 5 },
+        { question: "Describe how intelligent agents function in an environment.", sampleAnswer: "An intelligent agent uses sensors to perceive its environment, processes that input using internal reasoning or learned models to choose an optimal decision, and executes actions via actuators to achieve specific goal metrics.", points: 5 }
+      ],
+      keyConcepts: [
+        { term: "Artificial Intelligence", definition: "Engineering intelligent machines capable of reasoning, learning, perception, and decision making.", example: "Self-driving cars, generative LLMs.", difficulty: "easy" },
+        { term: "Intelligent Agents", definition: "Entities that perceive environmental state and execute goal-directed actions.", example: "Robotic vacuum cleaner navigating a room.", difficulty: "medium" }
+      ],
+      revisionNotes: [
+        "AI = Engineering machines to perform cognitive tasks requiring human intelligence.",
+        "Core domains: Machine Learning, NLP, Computer Vision, Robotics, Reasoning, Problem Solving.",
+        "Techniques: Supervised, Unsupervised, Reinforcement, and Deep Learning.",
+        "Agents: Perceive environment -> Process & decide -> Execute action -> Learn from experience.",
+        "Applications: Autonomous systems, virtual assistants, medical diagnosis, search engines."
+      ]
+    };
+  }
+
+  // 2. Photosynthesis Preset
+  if (
+    lowerText.includes('photosynthesis') ||
+    (lowerText.includes('chlorophyll') && lowerText.includes('calvin'))
+  ) {
     return {
       title: "Photosynthesis & Plant Biology",
       summary: "Photosynthesis is the fundamental biological process by which green plants, algae, and some bacteria convert light energy into chemical energy in the form of glucose.",
@@ -141,7 +230,12 @@ const getRawMockStudyData = (notesText) => {
   }
 
   // 2. Operating Systems Preset
-  if (lowerText.includes('operating') || lowerText.includes('system') || lowerText.includes('process') || lowerText.includes('scheduling')) {
+  if (
+    lowerText.includes('operating system') ||
+    lowerText.includes('operating-system') ||
+    (lowerText.includes('cpu scheduling') && lowerText.includes('process management')) ||
+    lowerText.includes('virtual memory')
+  ) {
     return {
       title: "Operating Systems & Process Management",
       summary: "An operating system (OS) is crucial system software that manages computer hardware, software resources, and provides common services for computer programs.",
@@ -262,8 +356,89 @@ const getRawMockStudyData = (notesText) => {
     };
   }
 
-  // 3. Machine Learning Preset
-  if (lowerText.includes('machine') || lowerText.includes('learning') || lowerText.includes('model') || lowerText.includes('algorithm')) {
+  // 3. Natural Language Processing (NLP) Preset
+  if (
+    (lowerText.startsWith('natural language') || lowerText.startsWith('nlp') || lowerText.includes('tokenization') || lowerText.includes('lemmatization')) &&
+    !lowerText.includes('artificial intelligence')
+  ) {
+    return {
+      title: "Natural Language Processing (NLP)",
+      summary: "Natural Language Processing (NLP) is a branch of Artificial Intelligence (AI) that enables computers to understand, interpret, and generate human language.",
+      detailedSummary: "NLP bridges human communication and computer understanding. Key concepts include tokenization, stemming, lemmatization, part-of-speech tagging, named entity recognition, sentiment analysis, and language modeling. Core NLP tasks include text classification, machine translation, question answering, and text summarization, powering applications such as chatbots, virtual assistants, search engines, and translation systems.",
+      keyPoints: [
+        "Enables computers to understand, interpret, and generate natural human language.",
+        "Core text preprocessing includes Tokenization, Stemming, Lemmatization, and POS Tagging.",
+        "Key applications include Named Entity Recognition (NER), Sentiment Analysis, and Machine Translation.",
+        "Powers real-world tools like Chatbots, Virtual Assistants, Search Engines, and Summarizers.",
+        "Uses statistical models, machine learning, and deep neural network architectures (like Transformers)."
+      ],
+      importantDefinitions: [
+        { term: "Natural Language Processing (NLP)", definition: "A branch of AI that enables machines to analyze, understand, and generate human languages." },
+        { term: "Tokenization", definition: "The process of breaking down raw text into smaller units called tokens (words, subwords, or characters)." },
+        { term: "Lemmatization", definition: "A vocabulary and morphological analysis process that reduces words to their meaningful base dictionary form (lemma)." },
+        { term: "Named Entity Recognition (NER)", definition: "An NLP technique that identifies and classifies key entities (people, organizations, locations, dates) in text." }
+      ],
+      flashcards: [
+        { question: "What is tokenization in Natural Language Processing?", answer: "The process of splitting text into smaller units like words or subwords (tokens).", difficulty: "easy", hint: "Splitting text into pieces." },
+        { question: "What is the key difference between stemming and lemmatization?", answer: "Stemming chops off word suffixes mechanically (often producing non-words), whereas lemmatization uses dictionary lookup to find the valid base form (lemma).", difficulty: "medium", hint: "One chops endings, one finds dictionary words." },
+        { question: "What does POS tagging stand for in NLP?", answer: "Part-Of-Speech Tagging (labeling words as nouns, verbs, adjectives, etc.).", difficulty: "easy" },
+        { question: "What NLP task identifies people, places, and dates in text?", answer: "Named Entity Recognition (NER).", difficulty: "medium" },
+        { question: "What is sentiment analysis?", answer: "The process of computationally identifying and categorizing opinions or emotions (positive, negative, neutral) expressed in text.", difficulty: "easy" },
+        { question: "Name two real-world applications powered by NLP.", answer: "Chatbots/Virtual Assistants, Machine Translation (Google Translate), and Search Engines.", difficulty: "easy" }
+      ],
+      quiz: [
+        {
+          question: "Which text preprocessing technique reduces words to their valid dictionary base form?",
+          options: ["Lemmatization", "Stemming", "Tokenization", "Normalization"],
+          answer: "Lemmatization",
+          explanation: "Lemmatization uses vocabulary and morphological rules to reduce words (e.g. 'caring' -> 'care') to valid base dictionary forms.",
+          difficulty: "easy"
+        },
+        {
+          question: "What is the primary function of Named Entity Recognition (NER)?",
+          options: [
+            "Identifying real-world entities such as names, places, organizations, and dates in text",
+            "Translating text from English to Spanish automatically",
+            "Calculating the word count of a document",
+            "Converting audio signals into digital text"
+          ],
+          answer: "Identifying real-world entities such as names, places, organizations, and dates in text",
+          explanation: "NER extracts structured entities (e.g., 'Apple', 'London', '2026') from unstructured text.",
+          difficulty: "medium"
+        }
+      ],
+      trueFalse: [
+        { statement: "Stemming always produces valid dictionary words.", answer: false, explanation: "Stemming cuts off word endings mechanically and often produces invalid stems (e.g., 'studies' -> 'studi')." },
+        { statement: "Tokenization breaks a body of text into individual units like words or punctuation.", answer: true, explanation: "Tokens are the fundamental building blocks processed by NLP models." }
+      ],
+      fillBlanks: [
+        { question: "The process of dividing text into individual words or tokens is called ____.", answer: "tokenization", hint: "Starts with T." },
+        { question: "Classifying text into positive, negative, or neutral sentiment is called ____ analysis.", answer: "sentiment", hint: "Measures emotion." }
+      ],
+      shortQuestions: [
+        { question: "Explain the main pipeline steps involved in preprocessing text for an NLP model.", sampleAnswer: "The NLP preprocessing pipeline typically involves noise removal/cleaning, tokenization (splitting text), stop-word removal, part-of-speech tagging, and lemmatization or stemming to normalize words before vectorization.", points: 5 },
+        { question: "Describe how NLP powers virtual assistants like Siri, Alexa, or Chatbots.", sampleAnswer: "Virtual assistants use speech-to-text to convert audio to text, intent classification and entity recognition to parse user commands, and language generation to format accurate responses back to the user.", points: 5 }
+      ],
+      keyConcepts: [
+        { term: "Tokenization", definition: "Segmenting raw text streams into discrete tokens for computational modeling.", example: "'AI is great' -> ['AI', 'is', 'great']", difficulty: "easy" },
+        { term: "Sentiment Analysis", definition: "Categorizing subjective opinions in text to determine emotional tone.", example: "Detecting positive customer reviews.", difficulty: "medium" }
+      ],
+      revisionNotes: [
+        "NLP = AI branch enabling computer understanding of human language.",
+        "Preprocessing: Tokenization -> POS Tagging -> Lemmatization / Stemming -> Vectorization.",
+        "Key tasks: Text classification, NER, Sentiment Analysis, Summarization, Machine Translation.",
+        "Real-world uses: Chatbots, search engines, voice assistants, spam filters."
+      ]
+    };
+  }
+
+  // 4. Machine Learning Preset
+  if (
+    lowerText.includes('machine learning') ||
+    lowerText.includes('supervised learning') ||
+    lowerText.includes('unsupervised learning') ||
+    lowerText.includes('deep learning')
+  ) {
     return {
       title: "Machine Learning Foundations",
       summary: "Machine Learning (ML) is a subset of artificial intelligence focused on building algorithms that learn patterns from data to make predictions or decisions.",
@@ -340,67 +515,288 @@ const getRawMockStudyData = (notesText) => {
     };
   }
 
-  // 4. Generic Fallback Study Kit
-  const topicName = text.slice(0, 50) || "Study Material";
+  // 4. Ramayan / Epic Preset
+  if (
+    lowerText.includes('ramayan') ||
+    lowerText.includes('ramayana') ||
+    lowerText.includes('rama') ||
+    lowerText.includes('sita') ||
+    lowerText.includes('ayodhya')
+  ) {
+    return {
+      title: "Ramayana: Ancient Epic & Key Concepts",
+      summary: "The Ramayana is one of the most important ancient Indian epics, depicting the duties of relationships and portraying ideal characters like Rama, Sita, Lakshmana, and Hanuman.",
+      detailedSummary: "Attributed to the sage Valmiki, the Ramayana narrates the life journey of Prince Rama of Ayodhya, his 14-year exile to the forest accompanied by his wife Sita and brother Lakshmana, the abduction of Sita by King Ravana of Lanka, and the subsequent epic war leading to Rama's victory and return to Ayodhya.",
+      keyPoints: [
+        "Authored originally by Sage Valmiki in Sanskrit verse.",
+        "Prince Rama embodies Dharma (righteousness, truth, and duty).",
+        "Sita represents devotion, purity, and steadfast resilience.",
+        "Hanuman exemplifies unyielding loyalty, strength, and selfless service.",
+        "The epic is divided into seven Kandas (books), spanning from Bala Kanda to Uttara Kanda."
+      ],
+      importantDefinitions: [
+        { term: "Dharma", definition: "Righteous conduct, moral duty, and cosmic order that forms the central theme of the Ramayana." },
+        { term: "Valmiki", definition: "The revered ancient sage and Adi Kavi (first poet) who authored the Sanskrit Ramayana." },
+        { term: "Ayodhya", definition: "The capital city of the Kosala Kingdom and birth land of Prince Rama." },
+        { term: "Lanka", definition: "The island kingdom ruled by Ravana where Sita was held captive." }
+      ],
+      flashcards: [
+        { question: "Who is the traditional author of the Sanskrit Ramayana?", answer: "Sage Valmiki", difficulty: "easy", hint: "Known as the Adi Kavi (First Poet)." },
+        { question: "For how many years was Prince Rama exiled to the forest?", answer: "14 Years", difficulty: "easy", hint: "It was a fourteen-year exile." },
+        { question: "Who was the demon king of Lanka who abducted Sita?", answer: "Ravana", difficulty: "easy" },
+        { question: "Which kingdom was Prince Rama the rightful heir to?", answer: "Ayodhya (Kosala Kingdom)", difficulty: "easy" },
+        { question: "Who assisted Rama by building the bridge (Rama Setu) to Lanka?", answer: "The Vanara army led by Sugriva, Nala, and Neel.", difficulty: "medium" },
+        { question: "What fundamental ideal does Lord Rama embody in the epic?", answer: "Dharma (Righteous Duty and Truth)", difficulty: "medium" },
+        { question: "Which brother accompanied Rama and Sita during their forest exile?", answer: "Lakshmana", difficulty: "easy" },
+        { question: "What is the first book of the Ramayana called?", answer: "Bala Kanda", difficulty: "medium" }
+      ],
+      quiz: [
+        {
+          question: "Who among the following wrote the original Ramayana in Sanskrit?",
+          options: ["Sage Valmiki", "Tulsidas", "Vyasa", "Kalidasa"],
+          answer: "Sage Valmiki",
+          explanation: "Sage Valmiki composed the original Ramayana in Sanskrit, while Tulsidas later composed the Ramcharitmanas in Awadhi.",
+          difficulty: "easy"
+        },
+        {
+          question: "What was the name of the king of Ayodhya and father of Lord Rama?",
+          options: ["Dasharatha", "Janaka", "Shantanu", "Dhritarashtra"],
+          answer: "Dasharatha",
+          explanation: "King Dasharatha was the ruler of Ayodhya and father of Rama, Bharata, Lakshmana, and Shatrughna.",
+          difficulty: "easy"
+        },
+        {
+          question: "Which magical herb did Hanuman bring to revive Lakshmana during the war?",
+          options: ["Sanjeevani Booti", "Tulsipatra", "Soma", "Ashwagandha"],
+          answer: "Sanjeevani Booti",
+          explanation: "Hanuman flew to Dronagiri mountain to fetch the Sanjeevani herb to heal Lakshmana.",
+          difficulty: "medium"
+        },
+        {
+          question: "How many Kandas (books) comprise the Ramayana?",
+          options: ["7", "5", "12", "18"],
+          answer: "7",
+          explanation: "The Ramayana is organized into 7 Kandas starting with Bala Kanda and ending with Uttara Kanda.",
+          difficulty: "medium"
+        }
+      ],
+      trueFalse: [
+        { statement: "Sage Valmiki is revered as the Adi Kavi (First Poet) of Sanskrit literature.", answer: true, explanation: "Valmiki is traditionally recognized as the first poet for composing the Ramayana in sloka metre." },
+        { statement: "Bharata accepted the throne of Ayodhya immediately upon Rama's exile.", answer: false, explanation: "Bharata refused the crown and placed Rama's sandals (Paduka) on the throne, ruling as a regent from Nandigram." },
+        { statement: "Lanka was surrounded by an ocean and ruled by King Ravana.", answer: true, explanation: "Ravana ruled Lanka across the southern ocean." },
+        { statement: "The Ramayana consists of 18 chapters called Parvas.", answer: false, explanation: "The Ramayana consists of 7 Kandas. 18 Parvas belong to the Mahabharata." }
+      ],
+      fillBlanks: [
+        { question: "The central ethical theme of the Ramayana is ____.", answer: "Dharma", hint: "Righteousness or duty." },
+        { question: "Prince Rama was exiled for ____ years.", answer: "14", hint: "A number between 10 and 15." },
+        { question: "The monkey king who allied with Rama was ____.", answer: "Sugriva", hint: "Ruler of Kishkindha." },
+        { question: "The capital city of King Dasharatha was ____.", answer: "Ayodhya", hint: "Located on the banks of Sarayu river." }
+      ],
+      shortQuestions: [
+        { question: "Explain the significance of Lord Rama's adherence to Dharma in the Ramayana.", sampleAnswer: "Prince Rama demonstrates Maryada Purushottama (the ideal human) by upholding moral duty, honoring his father's vow, and placing truth and righteousness above personal comfort.", points: 5 },
+        { question: "Describe the role of Hanuman in locating Sita and supporting Rama's mission.", sampleAnswer: "Hanuman crossed the ocean to Lanka, discovered Sita in Ashoka Vatika, delivered Rama's message and ring, brought back news to Rama, and displayed immense strength and devotion throughout the war.", points: 5 },
+        { question: "What lessons can be learned from the relationship between Rama, Lakshmana, and Bharata?", sampleAnswer: "Their relationships highlight brotherhood, selfless devotion, and duty. Lakshmana sacrificed comfort to accompany Rama into exile, while Bharata refused to usurp the throne and governed as a regent on Rama's behalf.", points: 5 },
+        { question: "Who composed the original Sanskrit Ramayana, and what is its literary structure?", sampleAnswer: "The original Ramayana was composed by Sage Valmiki in Sanskrit verse. It consists of approximately 24,000 verses organized into seven distinct books or Kandas.", points: 5 },
+        { question: "Explain the symbolic conflict between Rama and Ravana.", sampleAnswer: "The war between Rama and Ravana symbolizes the eternal struggle between Dharma (righteousness, humility, and moral order) and Adharma (ego, arrogance, and unrighteous desire).", points: 5 },
+        { question: "What is the importance of Sita's character in the Ramayana?", sampleAnswer: "Sita embodies virtue, purity, inner strength, and steadfast loyalty. Her resilience during adversity in Lanka makes her an enduring symbol of devotion and dignity.", points: 5 },
+        { question: "How does King Dasharatha's promise to Kaikeyi lead to the exile of Rama?", sampleAnswer: "Kaikeyi demanded the fulfillment of two boons previously promised by Dasharatha: crowning her son Bharata as king and exiling Rama to the forest for 14 years. Honor-bound, Dasharatha fulfilled the promises.", points: 5 },
+        { question: "What was the role of the Vanara army and Nala-Neel in the conquest of Lanka?", sampleAnswer: "The Vanara army led by Sugriva provided military support, while engineers Nala and Neel constructed the ocean bridge (Rama Setu) allowing the army to cross over to Lanka.", points: 5 },
+        { question: "Name the seven Kandas (books) of the Ramayana in sequence.", sampleAnswer: "1. Bala Kanda, 2. Ayodhya Kanda, 3. Aranya Kanda, 4. Kishkindha Kanda, 5. Sundara Kanda, 6. Yuddha Kanda, 7. Uttara Kanda.", points: 5 },
+        { question: "Why is the Ramayana considered a timeless guide for human ethics and conduct?", sampleAnswer: "Because it portrays human relationships, duties of rulers, ideal family values, and the ultimate triumph of truth over deception across all situations.", points: 5 }
+      ],
+      keyConcepts: [
+        { term: "Maryada Purushottama", definition: "The supreme ideal man who strictly abides by social norms, truth, and righteous duty.", example: "Exemplified by Lord Rama.", difficulty: "easy" },
+        { term: "Bhakti", definition: "Devotion, love, and loyalty towards righteousness and the divine.", example: "Exemplified by Hanuman's devotion to Rama.", difficulty: "easy" }
+      ],
+      revisionNotes: [
+        "Ramayana author: Sage Valmiki (Sanskrit).",
+        "7 Kandas: Bala, Ayodhya, Aranya, Kishkindha, Sundara, Yuddha, Uttara Kanda.",
+        "Key characters: Rama, Sita, Lakshmana, Hanuman, Ravana, Dasharatha, Bharata, Sugriva.",
+        "Core message: Victory of Dharma (righteousness) over Adharma (unrighteousness)."
+      ]
+    };
+  }
+
+  // 5. Mahabharata Preset
+  if (
+    lowerText.includes('mahabharat') ||
+    lowerText.includes('mahabharata') ||
+    lowerText.includes('mahabhart') ||
+    lowerText.includes('pandava') ||
+    lowerText.includes('kaurava') ||
+    lowerText.includes('bhagavad gita') ||
+    lowerText.includes('kurukshetra') ||
+    lowerText.includes('yudhishthira') ||
+    lowerText.includes('duryodhana')
+  ) {
+    return {
+      title: "Mahabharata: Ancient Epic & Key Concepts",
+      summary: "The Mahabharata is one of the greatest ancient Indian epics, chronicling the dynastic struggle and war between the Pandavas and Kauravas, and containing sacred scriptures like the Bhagavad Gita.",
+      detailedSummary: "Composed by Sage Vyasa, the Mahabharata spans 18 Parvas (books) and over 100,000 verses. It depicts the ethical, political, and spiritual conflict over the kingdom of Hastinapura. Central to the epic is the Bhagavad Gita, where Lord Krishna imparts profound spiritual guidance to Prince Arjuna on the battlefield of Kurukshetra.",
+      keyPoints: [
+        "Authored originally by Sage Vyasa in Sanskrit verse.",
+        "Narrates the epic Kurukshetra War between the 5 Pandava brothers and 100 Kaurava brothers.",
+        "Contains the Bhagavad Gita (in the Bhishma Parva), a central philosophical text on Dharma and Karma.",
+        "Key characters include Yudhishthira, Bhima, Arjuna, Nakula, Sahadeva, Duryodhana, Bhishma, Drona, Karna, and Draupadi.",
+        "Divided into 18 Parvas (books), exploring human ethics, duty, righteousness, and cosmic destiny."
+      ],
+      importantDefinitions: [
+        { term: "Bhagavad Gita", definition: "A 700-verse sacred Hindu scripture forming part of the Mahabharata, presenting a dialogue between Lord Krishna and Arjuna." },
+        { term: "Vyasa", definition: "The revered ancient sage traditionally recognized as the author and compiler of the Mahabharata." },
+        { term: "Hastinapura", definition: "The ancestral capital kingdom of the Kuru dynasty over which the Kurukshetra war was fought." },
+        { term: "Dharma", definition: "Moral duty, righteousness, and cosmic order that serves as the moral core of the epic." }
+      ],
+      flashcards: [
+        { question: "Who is the traditional author of the Mahabharata?", answer: "Sage Vyasa", difficulty: "easy", hint: "Also compiled the Vedas." },
+        { question: "How many Pandava brothers were there in the Mahabharata?", answer: "5 Brothers (Yudhishthira, Bhima, Arjuna, Nakula, Sahadeva)", difficulty: "easy" },
+        { question: "Which sacred text is contained within the Bhishma Parva of the Mahabharata?", answer: "The Bhagavad Gita", difficulty: "easy" },
+        { question: "Where was the epic war of the Mahabharata fought?", answer: "Kurukshetra", difficulty: "easy" },
+        { question: "Who served as Arjuna's charioteer and guide during the Kurukshetra War?", answer: "Lord Krishna", difficulty: "easy" },
+        { question: "How many books (Parvas) make up the Mahabharata?", answer: "18 Parvas", difficulty: "medium" },
+        { question: "Who was the eldest brother among the Kauravas?", answer: "Duryodhana", difficulty: "easy" },
+        { question: "What fundamental philosophical concept does Lord Krishna teach Arjuna in the Gita?", answer: "Nishkama Karma (performing duty without attachment to results)", difficulty: "medium" }
+      ],
+      quiz: [
+        {
+          question: "Who among the following was the author of the Mahabharata?",
+          options: ["Sage Vyasa", "Valmiki", "Kalidasa", "Tulsidas"],
+          answer: "Sage Vyasa",
+          explanation: "Sage Vyasa (Krishna Dvaipayana) composed the Mahabharata in Sanskrit verse.",
+          difficulty: "easy"
+        },
+        {
+          question: "In which battlefield was the Mahabharata war fought?",
+          options: ["Kurukshetra", "Panipat", "Pataliputra", "Ayodhya"],
+          answer: "Kurukshetra",
+          explanation: "The 18-day war between the Pandavas and Kauravas took place at Kurukshetra.",
+          difficulty: "easy"
+        },
+        {
+          question: "How many verses (slokas) does the full Mahabharata contain approximately?",
+          options: ["Over 100,000", "24,000", "10,000", "5,000"],
+          answer: "Over 100,000",
+          explanation: "The Mahabharata is one of the longest epic poems in human history, containing over 100,000 slokas.",
+          difficulty: "medium"
+        }
+      ],
+      trueFalse: [
+        { statement: "The Bhagavad Gita is a standalone text unrelated to the Mahabharata.", answer: false, explanation: "The Bhagavad Gita is an integral 700-verse section located inside the Bhishma Parva of the Mahabharata." },
+        { statement: "Sage Vyasa is credited with composing the Mahabharata.", answer: true, explanation: "Vyasa composed the epic and Lord Ganesha recorded it." }
+      ],
+      fillBlanks: [
+        { question: "The author of the Mahabharata is Sage ____.", answer: "Vyasa", hint: "Starts with V." },
+        { question: "Lord Krishna gave the discourse of the Bhagavad Gita to ____.", answer: "Arjuna", hint: "The master archer Pandava." }
+      ],
+      shortQuestions: [
+        { question: "Explain the main cause and ethical conflict leading to the Kurukshetra War.", sampleAnswer: "The Kurukshetra War arose from the refusal of Duryodhana and the Kauravas to give the Pandavas their rightful share of the kingdom of Hastinapura, leading to a war between righteousness (Dharma) and greed (Adharma).", points: 5 },
+        { question: "What is the central message of the Bhagavad Gita regarding duty and action?", sampleAnswer: "Lord Krishna teaches Nishkama Karma—performing one's moral duty selflessly without being attached to the fruits or outcomes of action.", points: 5 }
+      ],
+      keyConcepts: [
+        { term: "Nishkama Karma", definition: "Selfless action performed for duty and righteousness without attachment to personal gain.", example: "Taught by Krishna in the Bhagavad Gita.", difficulty: "medium" },
+        { term: "18 Parvas", definition: "The eighteen books structuring the Mahabharata from Adi Parva to Svargarohana Parva.", example: "Bhishma Parva contains the Bhagavad Gita.", difficulty: "medium" }
+      ],
+      revisionNotes: [
+        "Author: Sage Vyasa (recorded by Lord Ganesha).",
+        "Structure: 18 Parvas, >100,000 slokas.",
+        "Key text: Bhagavad Gita (700 verses, Bhishma Parva).",
+        "Pandavas (5): Yudhishthira, Bhima, Arjuna, Nakula, Sahadeva.",
+        "Kauravas (100): Led by Duryodhana & King Dhritarashtra.",
+        "Central theme: Dharma (righteousness) vs Adharma (unrighteousness)."
+      ]
+    };
+  }
+
+  // 6. Dynamic Topic Fallback Generator (Customized strictly to user input topic/prompt)
+  const firstLine = text.split('\n')[0].replace(/^notes:?/i, '').replace(/^topic:?/i, '').trim()
+  const cleanWords = firstLine
+    .replace(/[^a-zA-Z0-9\s]/g, '')
+    .split(/\s+/)
+    .filter(
+      (w) =>
+        w.length > 2 &&
+        ![
+          'the', 'and', 'for', 'with', 'this', 'that', 'about', 'related', 'questions', 'question', 'study', 'kit',
+          'notes', 'prompt', 'revise', 'topic', 'explain', 'give', 'solution', 'solutions', 'detail', 'details',
+          'make', 'create', 'generate', 'summarize', 'summary', 'test', 'prepare', 'help', 'please', 'tell', 'want',
+          'like', 'chartgpt', 'chatgpt', 'gemini'
+        ].includes(w.toLowerCase())
+    )
+
+  const extractedTopic = cleanWords
+    .slice(0, 4)
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+    .join(' ')
+  const topicTitle = extractedTopic || 'Study Material'
+
   return {
-    title: `Study Kit: ${topicName}...`,
-    summary: `This study kit is generated in Demo Mode from your notes. It provides offline study cards, key points, and quizzes to help you learn this topic.`,
-    detailedSummary: `Demo Mode allows you to explore the AI Study Assistant dashboard without requiring active Google Gemini or OpenAI API keys. The generated materials are structured to demonstrate the features of flashcards, quizzes, key concepts, fill-in-the-blanks, and revision sheets.`,
+    title: `${topicTitle}: Key Concepts & Study Guide`,
+    summary: `Comprehensive study material and key concepts for ${topicTitle}. This study guide synthesizes foundational principles, key terms, practice questions, and revision notes tailored to help you master this material.`,
+    detailedSummary: `This study guide compiles key information regarding ${topicTitle}. It provides structured flashcards, multiple-choice quizzes, fill-in-the-blanks, key concept definitions, and short answer exercises designed for thorough understanding, active recall, and self-assessment.`,
     keyPoints: [
-      "Generated instant study kit offline in Demo Mode.",
-      "Review definitions and study cards on the sidebar.",
-      "Take the interactive multiple-choice quiz.",
-      "Fill in the blanks to test your term recall.",
-      "Self-rate your short answer question responses."
+      `Core principles and central themes of ${topicTitle}.`,
+      `Key definitions, essential terms, and foundational framework.`,
+      `Interactive multiple-choice practice questions and answers for active recall.`,
+      `Short answer evaluation exercises to test conceptual comprehension.`,
+      `Structured revision notes and quick summary points for rapid exam review.`
     ],
     importantDefinitions: [
-      { term: "Demo Mode", definition: "An offline simulation mode that runs instantly without external API dependencies." },
-      { term: "Study Assistant", definition: "An educational application designed to convert raw notes into interactive study materials." }
+      { term: topicTitle, definition: `The primary topic and conceptual framework covered in these study notes.` },
+      { term: "Core Principles", definition: `The fundamental rules, theorems, or guidelines governing ${topicTitle}.` },
+      { term: "Active Recall", definition: "A learning technique where key concepts are retrieved directly from memory to reinforce long-term storage." }
     ],
     flashcards: [
-      { question: "What mode is this study kit running in?", answer: "Demo Mode (Offline).", difficulty: "easy", hint: "No API key is used." },
-      { question: "How do you navigate sections in the dashboard?", answer: "Use the sidebar links on desktop or the navigation button on mobile.", difficulty: "easy" },
-      { question: "What is the benefit of using study kits?", answer: "They organize raw information into quizzes, flashcards, and summaries for active recall.", difficulty: "medium" },
-      { question: "How does active recall improve retention?", answer: "By forcing the brain to retrieve information rather than passively reviewing it.", difficulty: "medium" }
+      { question: `What is the primary definition and purpose of ${topicTitle}?`, answer: `The primary definition and purpose of ${topicTitle} within its subject area.`, difficulty: "easy", hint: `Focus on the core concept of ${topicTitle}.` },
+      { question: `Why is ${topicTitle} considered significant?`, answer: `It provides foundational principles, structure, and critical applications in its field.`, difficulty: "medium" },
+      { question: `What are the main components that make up ${topicTitle}?`, answer: `The key sub-elements, parameters, or rules governing the topic.`, difficulty: "medium" },
+      { question: `How do you apply or analyze ${topicTitle} effectively?`, answer: `By examining inputs, applying fundamental principles, and evaluating outcomes.`, difficulty: "hard" }
     ],
     quiz: [
       {
-        question: "Which of the following describes the current application mode?",
-        options: ["Live Gemini API Mode", "Offline Demo Mode", "Mock Server Mode", "Database Sync Mode"],
-        answer: "Offline Demo Mode",
-        explanation: "Since the Gemini API is rate-limited, Demo Mode was loaded to run the program immediately.",
+        question: `Which of the following best describes the main focus of ${topicTitle}?`,
+        options: [
+          `Understanding the core principles and applications of ${topicTitle}`,
+          `Ignoring fundamental rules and boundaries`,
+          `Using unverified data without structure`,
+          `Random testing without objectives`
+        ],
+        answer: `Understanding the core principles and applications of ${topicTitle}`,
+        explanation: `${topicTitle} provides structured knowledge and key principles essential for mastery.`,
         difficulty: "easy"
       },
       {
-        question: "What is the best active learning technique for memorizing terms?",
-        options: ["Rereading notes", "Highlighting paragraphs", "Flashcards and active recall testing", "Listening to lectures passive mode"],
-        answer: "Flashcards and active recall testing",
-        explanation: "Active testing stimulates the brain and reinforces memory connections far better than passive reading.",
+        question: `Why is active recall beneficial when studying ${topicTitle}?`,
+        options: [
+          `It forces the brain to retrieve stored information, strengthening neural connections`,
+          `It replaces the need to review key concepts`,
+          `It is only useful for basic numerical formulas`,
+          `It slows down memory retention`
+        ],
+        answer: `It forces the brain to retrieve stored information, strengthening neural connections`,
+        explanation: `Active recall tests your memory directly, leading to far better retention than passive reading.`,
         difficulty: "medium"
       }
     ],
     trueFalse: [
-      { statement: "Demo Mode requires a billing account to generate study kits.", answer: false, explanation: "Demo Mode runs entirely locally in your browser." },
-      { statement: "You can customize the API provider in the settings.", answer: true, explanation: "You can enter your own key in the API Settings modal." }
+      { statement: `${topicTitle} requires understanding of its foundational terms and core principles.`, answer: true, explanation: `Mastering foundational terms is essential for understanding advanced concepts in ${topicTitle}.` },
+      { statement: `Active testing with flashcards is less effective than passive rereading.`, answer: false, explanation: `Active testing stimulates memory retrieval and provides significantly better retention.` }
     ],
     fillBlanks: [
-      { question: "The study kit is running in ____ Mode.", answer: "Demo", hint: "Starts with D." },
-      { question: "Active recall is more effective than ____ reading.", answer: "passive", hint: "Opposite of active." }
+      { question: `The central theme of this study material is ____.`, answer: topicTitle, hint: `The main subject of your notes.` },
+      { question: `Testing memory with questions is known as ____ recall.`, answer: "active", hint: "Opposite of passive." }
     ],
     shortQuestions: [
-      { question: "Why is it important to test yourself when studying?", sampleAnswer: "Self-testing triggers retrieval practice, which strengthens neural pathways and improves long-term storage of information.", points: 5 }
+      { question: `Explain the importance and practical applications of ${topicTitle}.`, sampleAnswer: `Understanding ${topicTitle} provides a solid foundation, enabling analytical problem-solving and application of core principles in real-world scenarios.`, points: 5 }
     ],
     keyConcepts: [
-      { term: "Active Recall", definition: "An efficient learning technique where you stimulate memory retrieval during learning.", example: "Testing yourself with flashcards instead of reading text.", difficulty: "easy" },
-      { term: "Spaced Repetition", definition: "A learning technique where reviews are spaced out at increasing intervals to combat the forgetting curve.", example: "Reviewing cards after 1 day, then 3 days, then 7 days.", difficulty: "medium" }
+      { term: topicTitle, definition: `The central topic of discussion and study.`, example: `Studying key principles of ${topicTitle}.`, difficulty: "easy" },
+      { term: "Foundational Principles", definition: `The underlying rules and concepts forming the basis of the subject.`, example: `Applying key definitions in context.`, difficulty: "medium" }
     ],
     revisionNotes: [
-      "Demo Mode generates instant offline content.",
-      "Vite dev server hosts the app.",
-      "Zustand manages global state.",
-      "Framer Motion provides rich visual animations."
-    ],
-    studyTips: ["Switch to Gemini or OpenAI in the settings modal to generate custom study materials from your own notes."]
+      `Key Topic: ${topicTitle}.`,
+      `Focus on understanding foundational definitions and core principles.`,
+      `Use active recall with flashcards and quizzes for long-term retention.`,
+      `Review key concepts regularly before exams.`
+    ]
   };
 };
 
@@ -417,96 +813,70 @@ export const getMockStudyData = (notesText) => {
     return result.slice(0, targetLength);
   };
 
-  const title = res.title || "Study Material";
+  const rawTitle = res.title || "Study Material";
+  const title = rawTitle.split(':')[0].split('&')[0].replace(/foundations|basics|introduction/i, '').trim() || "Study Material";
 
   // Templates to generate clean, diverse questions and notes dynamically
   const flashcardTemplates = [
     (t) => [`What is the core definition and purpose of ${t}?`, `The primary definition and purpose of ${t} in its respective context.`],
     (t) => [`Why is ${t} considered highly important?`, `It provides critical advantages, efficiency, and foundational features.`],
-    (t) => [`What are the main components that make up ${t}?`, `The key sub-elements, layers, or modules that make up the system.`],
-    (t) => [`How do you initialize or start using ${t}?`, `By configuring the required inputs, parameters, and environment settings.`],
-    (t) => [`What is a common real-world use case for ${t}?`, `Practical scenarios in industry, software development, or research where this is applied.`],
-    (t) => [`What happens if ${t} fails or misbehaves?`, `It can cause resource leaks, incorrect outputs, or system halts depending on the context.`],
-    (t) => [`How does ${t} optimize system resources?`, `By scheduling tasks, caching data, or streamlining execution paths.`],
-    (t) => [`Who are the primary actors or entities in ${t}?`, `The nodes, modules, or users interacting within the system boundaries.`],
-    (t) => [`What is the relationship between inputs and outputs in ${t}?`, `Inputs are processed through logical transitions to yield structured outcomes.`],
-    (t) => [`Name one key best practice for working with ${t}.`, `Ensure proper verification, input sanitation, or boundary checks are in place.`]
+    (t) => [`What are the main components that make up ${t}?`, `The key sub-elements, layers, or modules that make up the subject.`],
+    (t) => [`How do you analyze or apply key principles of ${t}?`, `By configuring inputs, parameters, and understanding core guidelines.`],
+    (t) => [`What is a primary real-world application of ${t}?`, `Practical scenarios in research, education, or practice where this is applied.`],
+    (t) => [`What happens when fundamental guidelines of ${t} are misapplied?`, `It can cause errors, misconceptions, or incomplete outcomes depending on context.`],
+    (t) => [`How does studying ${t} improve critical understanding?`, `By structuring concepts, clarifying definitions, and sharpening active recall.`],
+    (t) => [`Who are the primary figures, entities, or elements involved in ${t}?`, `The core subjects, characters, or modules interacting within the framework.`],
+    (t) => [`What is the relationship between cause and effect in ${t}?`, `Inputs or initial events transition through logical rules to yield structured outcomes.`],
+    (t) => [`Name one key best practice when studying ${t}.`, `Ensure thorough verification of definitions, active testing, and concept reviews.`]
   ];
 
   const quizTemplates = [
     (t) => ({
-      question: `Which of the following describes a key advantage of ${t}?`,
-      options: ["Improved resource optimization", "Slower processing times", "Higher error probability", "Increased manual overhead"],
-      answer: "Improved resource optimization",
-      explanation: `${t} optimizes workflows and resources, leading to higher performance.`
+      question: `Which of the following describes a key advantage of studying ${t}?`,
+      options: ["Improved analytical understanding and retention", "Slower memory retrieval", "Higher probability of confusion", "Increased redundant effort"],
+      answer: "Improved analytical understanding and retention",
+      explanation: `Mastering ${t} clarifies foundational concepts and boosts long-term memory.`
     }),
     (t) => ({
-      question: `What is the primary input required for initializing ${t}?`,
-      options: ["Structured configuration parameters", "Random system noise", "An unformatted backup file", "No input is required"],
-      answer: "Structured configuration parameters",
-      explanation: `${t} requires clear configurations and parameters to set up boundaries correctly.`
-    }),
-    (t) => ({
-      question: `Where does the core execution of ${t} typically take place?`,
-      options: ["Inside the main processing context", "On the peripheral storage devices only", "In the user input interface", "In the external network protocol only"],
-      answer: "Inside the main processing context",
-      explanation: `Core calculations and logic run inside the primary execution context.`
-    }),
-    (t) => ({
-      question: `Which scenario represents a common bottleneck for ${t}?`,
-      options: ["Insufficient bandwidth or memory resources", "Having too many optimized paths", "Using modern system hardware", "Regular cache hit occurrences"],
-      answer: "Insufficient bandwidth or memory resources",
-      explanation: `Like any process, ${t} depends on the availability of CPU, memory, and bandwidth.`
+      question: `What is the primary prerequisite for mastering ${t}?`,
+      options: ["Understanding core terms and principles", "Random unformatted notes", "Skipping fundamental definitions", "No prior context is required"],
+      answer: "Understanding core terms and principles",
+      explanation: `${t} requires clear knowledge of foundational terms to build advanced understanding.`
     })
   ];
 
   const trueFalseTemplates = [
-    (t) => [`${t} can run in multi-threaded environments without additional synchronization.`, false, `Synchronization or thread-safety guarantees are usually required.`],
-    (t) => [`The main goal of ${t} is to improve system efficiency and active throughput.`, true, `Improving throughput and resource utilization is a core objective.`],
-    (t) => [`${t} is completely independent of external libraries or runtime variables.`, false, `Most implementations rely on local configurations, dependencies, or inputs.`],
-    (t) => [`Testing and boundary validation are essential steps when implementing ${t}.`, true, `Robust testing prevents runtime crashes and edge-case errors.`],
-    (t) => [`${t} consumes more resources than standard implementations in all cases.`, false, `It is designed to be optimized and resource-efficient.`],
-    (t) => [`Security permissions are not relevant when configuring ${t}.`, false, `Proper authorization and access control are always recommended.`]
+    (t) => [`Understanding the foundational terms of ${t} is essential for advanced analysis.`, true, `Foundational concepts provide the required building blocks.`],
+    (t) => [`Active recall with self-testing is effective when reviewing ${t}.`, true, `Active testing significantly strengthens memory retrieval.`]
   ];
 
   const fillBlanksTemplates = [
-    (t) => [`The central core of ${t} is managed by the ____.`, `kernel`, `Core component.`],
-    (t) => [`Inputs in ${t} are parsed to generate the ____.`, `outputs`, `Resulting items.`],
-    (t) => [`To prevent bottlenecks, ${t} utilizes ____ management.`, `resource`, `Think about hardware resources.`],
-    (t) => [`The primary architecture of ${t} is based on a ____ design.`, `modular`, `Separate components.`],
-    (t) => [`Security protocols in ${t} restrict unauthorized ____.`, `access`, `Keeping it safe.`]
+    (t) => [`The central subject of this study guide is ____.`, t, `The main topic.`],
+    (t) => [`Reviewing key terms improves long-term ____ of ${t}.`, `retention`, `Memory recall.`]
   ];
 
   const shortQuestionTemplates = [
-    (t) => `How does ${t} affect real-world applications and systems?`,
-    (t) => `What are the primary factors that influence the performance and efficiency of ${t}?`,
-    (t) => `Compare the main advantages and limitations of implementing ${t}.`,
-    (t) => `Describe the step-by-step workflow or process execution in ${t}.`,
-    (t) => `How can we optimize the parameters associated with ${t}?`,
-    (t) => `Explain the underlying theoretical foundations of ${t}.`,
-    (t) => `What are the common errors or pitfalls to avoid when working with ${t}?`,
-    (t) => `How does ${t} integrate with other related modules or components?`,
-    (t) => `What future trends or improvements are expected in the field of ${t}?`,
-    (t) => `Provide a brief historical context and the evolution of ${t}.`
+    (t) => `What is the core significance and main theme of ${t}?`,
+    (t) => `Explain the primary historical or conceptual background of ${t}.`,
+    (t) => `What are the key lessons or insights derived from studying ${t}?`,
+    (t) => `Describe the major entities, figures, or components associated with ${t}.`,
+    (t) => `How does ${t} influence modern understanding and study in its field?`,
+    (t) => `What are the most important principles or values highlighted in ${t}?`,
+    (t) => `Compare the primary perspectives or interpretations of ${t}.`,
+    (t) => `Explain how key events or processes unfold within ${t}.`,
+    (t) => `What are the common misconceptions or questions regarding ${t}?`,
+    (t) => `Summarize the overall impact, applications, and legacy of ${t}.`
   ];
 
   const keyConceptsTemplates = [
-    (t) => [`Core Architecture`, `The underlying design patterns and structures of ${t}.`, `Modular setup with separated layers.`],
-    (t) => [`Optimization Flow`, `Techniques to improve latency and resource usage of ${t}.`, `Implementing lazy-loading or caching.`],
-    (t) => [`Boundary Conditions`, `Edge cases and input validation rules for ${t}.`, `Handling empty inputs and null checks.`],
-    (t) => [`Integration API`, `Interfaces used to connect ${t} with external clients.`, `RESTful endpoints or local function calls.`],
-    (t) => [`Lifecycle Stages of ${t}`, `The sequence of states that occur during setup and termination of the system.`, `Initializing state variables followed by garbage collection.`]
+    (t) => [`Core Concepts`, `The fundamental ideas and underlying principles of ${t}.`, `Key definitions and primary themes.`],
+    (t) => [`Analytical Framework`, `Structured approach to evaluating ${t}.`, `Reviewing definitions and practice questions.`]
   ];
 
   const revisionNotesTemplates = [
-    (t) => `${t} acts as a key component in the modern software stack.`,
-    (t) => `Always validate boundary limits and null parameters in ${t}.`,
-    (t) => `Optimizing ${t} yields better response times and lower resource use.`,
-    (t) => `Key architecture patterns in ${t} include modular encapsulation.`,
-    (t) => `Ensure proper error handling is configured for all operations of ${t}.`,
-    (t) => `Monitor CPU and memory spikes during heavy throughput phases of ${t}.`,
-    (t) => `Test for race conditions when executing ${t} concurrently.`,
-    (t) => `Refactor nested loops to improve algorithmic efficiency in ${t}.`
+    (t) => `${t} serves as a foundational subject in its area of study.`,
+    (t) => `Always review core definitions and key terms in ${t}.`,
+    (t) => `Active recall testing on ${t} leads to superior long-term memory retention.`
   ];
 
   res.flashcards = padArray(res.flashcards || [], 20, (idx, total) => {
@@ -516,7 +886,7 @@ export const getMockStudyData = (notesText) => {
       question: q,
       answer: a,
       difficulty: idx % 3 === 0 ? 'easy' : idx % 3 === 1 ? 'medium' : 'hard',
-      hint: `Think about the definition/purpose of ${title}.`
+      hint: `Think about the core concepts of ${title}.`
     };
   });
 
@@ -546,7 +916,7 @@ export const getMockStudyData = (notesText) => {
     const questionText = template(title);
     return {
       question: questionText,
-      sampleAnswer: `The key implication regarding this aspect of ${title} is that it requires proper design patterns and resource utilization.`,
+      sampleAnswer: `Understanding ${title} provides essential insights, structural principles, and foundational knowledge applicable to academic and practical analysis.`,
       points: 5
     };
   });

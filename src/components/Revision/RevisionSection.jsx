@@ -10,8 +10,8 @@ import {
   HelpCircle,
   Lightbulb,
   CheckCircle,
+  FileText,
 } from 'lucide-react'
-import toast from 'react-hot-toast'
 import { staggerContainer, staggerItem } from '@/animations/variants'
 
 function RevisionBlock({ title, icon: Icon, iconBg, items }) {
@@ -22,10 +22,9 @@ function RevisionBlock({ title, icon: Icon, iconBg, items }) {
     try {
       await navigator.clipboard.writeText(text)
       setCopied(true)
-      toast.success('Copied!')
       setTimeout(() => setCopied(false), 2000)
     } catch {
-      toast.error('Failed to copy')
+      // silent copy fallback
     }
   }
 
@@ -45,7 +44,7 @@ function RevisionBlock({ title, icon: Icon, iconBg, items }) {
             {items.length}
           </span>
         </div>
-        <button onClick={handleCopy} className="btn-ghost p-2 rounded-lg" title="Copy">
+        <button onClick={handleCopy} className="btn-ghost p-2 rounded-lg" title="Copy section text">
           {copied ? (
             <CheckCircle className="w-4 h-4 text-green-500" />
           ) : (
@@ -128,33 +127,106 @@ function FaqBlock({ faqs }) {
 }
 
 export default function RevisionSection({ data }) {
-  const handleDownloadAll = () => {
-    const sections = [
-      { title: 'Revision Notes', items: data.revisionNotes },
-      { title: 'Formula Sheet', items: data.formulaSheet },
-      { title: 'Exam Tips', items: data.examTips },
-      { title: 'Memory Tricks', items: data.memoryTricks },
-      { title: 'Difficult Concepts', items: data.difficultConcepts },
-      { title: 'Study Tips', items: data.studyTips },
-    ]
+  const handleDownloadWord = () => {
+    const topicTitle = data.title || 'Study_Notes'
+    const filename = `${topicTitle.replace(/[^a-zA-Z0-9]/g, '_')}_Short_Notes.doc`
 
-    const content = sections
-      .filter((s) => s.items?.length > 0)
-      .map(
-        (s) => `## ${s.title}\n${s.items.map((item, i) => `${i + 1}. ${item}`).join('\n')}`
-      )
-      .join('\n\n')
+    const htmlContent = `
+      <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+      <head>
+        <meta charset='utf-8'>
+        <title>${topicTitle}</title>
+        <style>
+          body { font-family: 'Calibri', 'Segoe UI', Arial, sans-serif; margin: 40px; color: #1e293b; line-height: 1.6; }
+          h1 { color: #312e81; font-size: 24pt; border-bottom: 3px solid #4f46e5; padding-bottom: 8px; margin-bottom: 16px; }
+          h2 { color: #4338ca; font-size: 16pt; margin-top: 24px; margin-bottom: 12px; border-left: 4px solid #6366f1; padding-left: 10px; }
+          h3 { color: #1e1b4b; font-size: 13pt; margin-top: 16px; margin-bottom: 8px; }
+          p { font-size: 11pt; margin-bottom: 12px; }
+          ul { font-size: 11pt; margin-left: 20px; }
+          li { margin-bottom: 8px; }
+          .note-box { background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; margin-bottom: 14px; }
+          .highlight { background-color: #f0fdf4; border-left: 4px solid #16a34a; padding: 12px; margin-bottom: 12px; }
+          .footer { margin-top: 40px; border-top: 1px solid #cbd5e1; padding-top: 12px; font-size: 9pt; color: #64748b; text-align: center; }
+        </style>
+      </head>
+      <body>
+        <h1>${topicTitle} - Short Notes</h1>
 
-    const blob = new Blob([`# ${data.title} - Revision Notes\n\n${content}`], {
-      type: 'text/markdown',
+        ${data.summary ? `
+          <h2>Topic Overview</h2>
+          <p>${data.summary}</p>
+        ` : ''}
+
+        ${data.detailedSummary ? `
+          <p>${data.detailedSummary}</p>
+        ` : ''}
+
+        ${data.keyPoints && data.keyPoints.length > 0 ? `
+          <h2>Key Takeaways</h2>
+          <ul>
+            ${data.keyPoints.map((item) => `<li>${item}</li>`).join('')}
+          </ul>
+        ` : ''}
+
+        ${data.revisionNotes && data.revisionNotes.length > 0 ? `
+          <h2>Short Notes</h2>
+          <ul>
+            ${data.revisionNotes.map((item) => `<li>${item}</li>`).join('')}
+          </ul>
+        ` : ''}
+
+        ${data.importantDefinitions && data.importantDefinitions.length > 0 ? `
+          <h2>Important Terms & Definitions</h2>
+          ${data.importantDefinitions.map((def) => `
+            <div class="highlight">
+              <strong>${def.term}:</strong> ${def.definition}
+            </div>
+          `).join('')}
+        ` : ''}
+
+        ${data.keyConcepts && data.keyConcepts.length > 0 ? `
+          <h2>Key Concepts</h2>
+          ${data.keyConcepts.map((c) => `
+            <div class="note-box">
+              <h3>${c.term}</h3>
+              <p><strong>Definition:</strong> ${c.definition}</p>
+              ${c.example ? `<p><strong>Example:</strong> ${c.example}</p>` : ''}
+            </div>
+          `).join('')}
+        ` : ''}
+
+        ${data.formulaSheet && data.formulaSheet.length > 0 ? `
+          <h2>Formula Sheet / Important Facts</h2>
+          <ul>
+            ${data.formulaSheet.map((item) => `<li>${item}</li>`).join('')}
+          </ul>
+        ` : ''}
+
+        ${data.examTips && data.examTips.length > 0 ? `
+          <h2>Exam Tips</h2>
+          <ul>
+            ${data.examTips.map((item) => `<li>${item}</li>`).join('')}
+          </ul>
+        ` : ''}
+
+        <div class="footer">
+          Generated by AI Study Assistant — Ready for offline revision & printing
+        </div>
+      </body>
+      </html>
+    `
+
+    const blob = new Blob(['\ufeff' + htmlContent], {
+      type: 'application/msword;charset=utf-8',
     })
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
-    a.download = `${data.title}-revision.md`
+    a.download = filename
+    document.body.appendChild(a)
     a.click()
+    document.body.removeChild(a)
     URL.revokeObjectURL(url)
-    toast.success('Revision notes downloaded!')
   }
 
   return (
@@ -165,41 +237,45 @@ export default function RevisionSection({ data }) {
       className="flex flex-col gap-6"
     >
       {/* Header */}
-      <motion.div variants={staggerItem} className="flex items-center justify-between">
+      <motion.div variants={staggerItem} className="flex items-center justify-between flex-wrap gap-4">
         <div>
-          <h2 className="text-xl font-bold text-surface-900 dark:text-surface-50">
-            Revision Notes
+          <h2 className="text-xl font-bold text-surface-900 dark:text-surface-50 flex items-center gap-2">
+            <FileText className="w-5 h-5 text-brand-600 dark:text-brand-400" />
+            Short Notes
           </h2>
           <p className="text-sm text-surface-500 dark:text-surface-400 mt-0.5">
-            Complete revision material
+            Concise topic notes formatted for quick reading & offline Word download
           </p>
         </div>
-        <button onClick={handleDownloadAll} className="btn-secondary text-xs px-4 py-2">
-          <Download className="w-3.5 h-3.5" />
-          Download All
+        <button
+          onClick={handleDownloadWord}
+          className="btn-primary p-2.5 rounded-xl shadow-md flex items-center justify-center transition-transform hover:scale-105"
+          title="Download Word"
+        >
+          <Download className="w-5 h-5" />
         </button>
       </motion.div>
 
       <RevisionBlock
-        title="Revision Notes"
+        title="Short Notes & Core Takeaways"
         icon={BookOpen}
         iconBg="bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-400"
         items={data.revisionNotes}
       />
       <RevisionBlock
-        title="Formula Sheet / Important Facts"
+        title="Key Points & Important Facts"
         icon={Zap}
         iconBg="bg-amber-100 dark:bg-amber-950 text-amber-600 dark:text-amber-400"
-        items={data.formulaSheet}
+        items={data.keyPoints}
       />
       <RevisionBlock
-        title="Exam Tips"
+        title="Exam Tips & Fast Recall"
         icon={Target}
         iconBg="bg-red-100 dark:bg-red-950 text-red-600 dark:text-red-400"
         items={data.examTips}
       />
       <RevisionBlock
-        title="Memory Tricks"
+        title="Memory Tricks & Quick Reference"
         icon={Brain}
         iconBg="bg-purple-100 dark:bg-purple-950 text-purple-600 dark:text-purple-400"
         items={data.memoryTricks}
